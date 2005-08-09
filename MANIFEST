@@ -1,0 +1,9 @@
+Changes
+lib/Acme/ProgressBar.pm
+Makefile.PL
+README
+MANIFEST			This list of files
+META.yml			Module meta-data (added by MakeMaker)
+t/pod.t
+t/pod-coverage.t
+t/progbar.t
