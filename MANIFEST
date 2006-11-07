@@ -7,3 +7,4 @@ META.yml			Module meta-data (added by MakeMaker)
 t/pod.t
 t/pod-coverage.t
 t/progbar.t
+t/perl-critic.t
