@@ -5,13 +5,13 @@ use warnings;
 
 =head1 NAME 
 
-Acme::ProgressBar -- a simple progress bar for the patient
+Acme::ProgressBar - a simple progress bar for the patient
 
 =head1 VERSION
 
-version 1.10
+version 1.121
 
- $Id: ProgressBar.pm,v 1.5 2005/04/02 15:46:49 rjbs Exp $
+ $Id$
 
 =cut
 
