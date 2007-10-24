@@ -1,6 +1,6 @@
-use Test::More 'no_plan';
+use Test::More tests => 2;
 
-BEGIN { use_ok('Acme::ProgressBar'); }
+use Acme::ProgressBar;
 ok(progress { 1; },       "do-nothing progress bar");
 
 # my $time = time;
