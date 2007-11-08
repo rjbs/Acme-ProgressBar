@@ -9,11 +9,11 @@ Acme::ProgressBar - a simple progress bar for the patient
 
 =head1 VERSION
 
-version 1.123
+version 1.124
 
 =cut
 
-our $VERSION = '1.123';
+our $VERSION = '1.124';
 
 =head1 SYNOPSIS
 
