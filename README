@@ -1,4 +1,4 @@
-README for Acme::ProgressBar
+README for Acme::ProgressBar 1.125
 
  use Acme::ProgressBar;
  progress { do_something_slow };
