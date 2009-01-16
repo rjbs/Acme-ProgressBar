@@ -9,5 +9,13 @@ WriteMakefile(
   AUTHOR    => 'Ricardo SIGNES <rjbs@cpan.org>',
   PREREQ_PM => { Exporter => 0 }, # otherwise META.yml broken; ugh
   (eval { ExtUtils::MakeMaker->VERSION(6.21) } ? (LICENSE => 'perl') : ()),
+    (eval { ExtUtils::MakeMaker->VERSION(6.46) }
+      ? (META_MERGE => {
+          resources => {
+            Repository => 'http://github.com/rjbs/acme-progressbar'
+          }
+        })
+      : ()
+    ),
 );
 
