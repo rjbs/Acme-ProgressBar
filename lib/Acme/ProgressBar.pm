@@ -36,39 +36,41 @@ code.
 =cut
 
 sub progress(&) { ## no critic Prototype
-	my ($code) = @_;
-	local $| = 1; ## no critic
-	_overprint(_message(0,10,undef));
-	my $begun = Time::HiRes::time;
+  my ($code) = @_;
+  local $| = 1; ## no critic
+  _overprint(_message(0,10,undef));
+
+  my $begun = Time::HiRes::time;
   $code->();
-	my $total = Time::HiRes::time - $begun;
-	for (1 .. 9) {
-		_overprint(_message($_,10,$total));
-		Time::HiRes::sleep($total);
-	}
-	_overprint(_message(10,10,$total));
-	print "\n";
+  my $total = Time::HiRes::time - $begun;
+
+  for (1 .. 9) {
+    _overprint(_message($_,10,$total));
+    Time::HiRes::sleep($total);
+  }
+
+  _overprint(_message(10,10,$total));
+  print "\n";
 }
 
 sub _message {
-	my ($iteration, $total, $time) = @_;
-	my $message
-    = 'Progress: ['
-    .  q{=} x $iteration
-    .  q{ } x ($total - $iteration)
-    .  '] ';
+  my ($iteration, $total, $time) = @_;
+  my $message = 'Progress: ['
+              .  q{=} x $iteration
+              .  q{ } x ($total - $iteration)
+              .  '] ';
 
-	if (defined $time) {
-	  $message .= sprintf '%0.0fs remaining%25s',
-	    (($total - $iteration) * $time), q{ };
-	} else {
-	  $message .= '(calculating time remaining)';
-	}
+  if (defined $time) {
+    $message .= sprintf '%0.0fs remaining%25s',
+      (($total - $iteration) * $time), q{ };
+  } else {
+    $message .= '(calculating time remaining)';
+  }
 }
 
 sub _overprint {
-	my ($message) = @_;
-	print $message, "\r";
+  my ($message) = @_;
+  print $message, "\r";
 }
 
 =head1 TODO
