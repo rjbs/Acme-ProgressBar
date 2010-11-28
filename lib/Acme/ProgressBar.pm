@@ -3,6 +3,8 @@ package Acme::ProgressBar;
 use strict;
 use warnings;
 
+use Time::HiRes ();
+
 =head1 NAME 
 
 Acme::ProgressBar - a simple progress bar for the patient
@@ -28,13 +30,13 @@ our @EXPORT = qw(progress); ## no critic Export
 sub progress(&) { ## no critic Prototype
 	my ($code) = @_;
 	local $| = 1; ## no critic
-	_overprint(_message(0,10,0));
-	my $begun = time;
+	_overprint(_message(0,10,undef));
+	my $begun = Time::HiRes::time;
   $code->();
-	my $total = time - $begun;
+	my $total = Time::HiRes::time - $begun;
 	for (1 .. 9) {
 		_overprint(_message($_,10,$total));
-		sleep $total;
+		Time::HiRes::sleep($total);
 	}
 	_overprint(_message(10,10,$total));
 	print "\n";
@@ -47,9 +49,13 @@ sub _message {
     .  q{=} x $iteration
     .  q{ } x ($total - $iteration)
     .  '] ';
-	$message .= $time
-		? ((($total - $iteration) * $time) . 's remaining' . q{ } x 25)
-		: '(calculating time remaining)';
+
+	if (defined $time) {
+	  $message .= sprintf '%0.0fs remaining%25s',
+	    (($total - $iteration) * $time), q{ };
+	} else {
+	  $message .= '(calculating time remaining)';
+	}
 }
 
 sub _overprint {
