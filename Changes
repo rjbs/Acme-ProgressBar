@@ -1,3 +1,8 @@
+Revision history for {{$dist->name}}
+
+{{$NEXT}}
+          improve accuracy of timing to subsecond measurements
+
 1.125     2009-01-16
           packaging tweaks
 
