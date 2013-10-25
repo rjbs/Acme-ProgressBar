@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.127     2013-10-24 22:28:18 America/New_York
+          fix links to repo and issue tracker
+
 1.126     2010-11-28 08:18:33 America/New_York
           improve accuracy of timing to subsecond measurements
 
