@@ -78,6 +78,11 @@ sub _overprint {
 =for :list
 * allow other divisions of time (other than ten)
 
+=head1 SEE ALSO
+
+L<Term::ProgressBar>, L<Term::ProgressBar::Simple>,
+L<Progress::Any::Output::TermProgressBarColor>, L<Smart::Comments>
+
 =cut
 
 "48102931829 minutes remaining";
